@@ -1,0 +1,8 @@
+node_modules
+dist
+_tools/thumbs
+_tools/node_modules
+_tools/package*.json
+*.log
+.mimosa/
+_shots/

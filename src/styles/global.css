@@ -1,0 +1,250 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #f2ede3;
+  --color-paper-deep: #e8e1d1;
+  --color-ink: #1a1712;
+  --color-copper: #a0743c;
+  --color-muted: #7c715e;
+  --font-display: "Cormorant Garamond", "Noto Serif SC", "Songti SC", serif;
+  --font-body: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+:root {
+  --bg: #f2ede3;
+  --bg-2: #e8e1d1;
+  --fg: #1a1712;
+  --accent: #a0743c;
+  --muted: #7c715e;
+  --line: rgba(26, 23, 18, 0.16);
+  --card: rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="garage"] {
+  --bg: #0e0f11;
+  --bg-2: #16171a;
+  --fg: #eceae2;
+  --accent: #c8372d;
+  --muted: #8d8f96;
+  --line: rgba(236, 234, 226, 0.14);
+  --card: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="showroom"] {
+  --bg: #0b0a09;
+  --bg-2: #141210;
+  --fg: #ede8dc;
+  --accent: #b08a4a;
+  --muted: #948b7a;
+  --line: rgba(237, 232, 220, 0.14);
+  --card: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="peloton"] {
+  --bg: #f4f5f3;
+  --bg-2: #e9ebe6;
+  --fg: #14171a;
+  --accent: #d8491a;
+  --muted: #6d7378;
+  --line: rgba(20, 23, 26, 0.15);
+  --card: rgba(255, 255, 255, 0.72);
+}
+
+[data-theme="gallery"] {
+  --bg: #fafaf7;
+  --bg-2: #efeee8;
+  --fg: #151512;
+  --accent: #b2321f;
+  --muted: #74736c;
+  --line: rgba(21, 21, 18, 0.14);
+  --card: #ffffff;
+}
+
+[data-theme="underwater"] {
+  --bg: #06141d;
+  --bg-2: #0a1e2a;
+  --fg: #dcebef;
+  --accent: #3fb8af;
+  --muted: #6e8794;
+  --line: rgba(220, 235, 239, 0.14);
+  --card: rgba(255, 255, 255, 0.05);
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-2);
+}
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--accent) 65%, var(--bg));
+  border-radius: 6px;
+  border: 2px solid var(--bg-2);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+.font-cn-serif {
+  font-family: "Noto Serif SC", "Songti SC", serif;
+}
+
+.theme-surface {
+  background: var(--bg);
+  color: var(--fg);
+  transition: background 0.5s ease;
+}
+
+/* magazine hairline frame */
+.frame-line {
+  border: 1px solid var(--line);
+}
+
+/* film grain overlay */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  z-index: 70;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain-shift 0.9s steps(4) infinite;
+}
+@keyframes grain-shift {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-2%, 1.5%); }
+  50% { transform: translate(1.5%, -1%); }
+  75% { transform: translate(-1%, -2%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* marquee */
+@keyframes marquee-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-x 36s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* underwater bubbles */
+.bubble {
+  position: absolute;
+  bottom: -40px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.06) 60%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  animation: bubble-rise linear infinite;
+  pointer-events: none;
+}
+@keyframes bubble-rise {
+  0% { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+  8% { opacity: 0.75; }
+  50% { transform: translateY(-55vh) translateX(2.5vw) scale(1.06); }
+  100% { transform: translateY(-110vh) translateX(-1.5vw) scale(1.12); opacity: 0; }
+}
+
+/* gentle swim for fish cards */
+@keyframes swim {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+.swim {
+  animation: swim 5.5s ease-in-out infinite;
+}
+
+/* spotlight floor for showroom */
+.showroom-glow {
+  background:
+    radial-gradient(ellipse 60% 42% at 50% 0%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 70%),
+    var(--bg);
+}
+
+/* garage concrete */
+.garage-texture {
+  background:
+    radial-gradient(ellipse 70% 50% at 50% -10%, rgba(200, 55, 45, 0.12), transparent 65%),
+    repeating-linear-gradient(90deg, transparent 0 118px, rgba(236, 234, 226, 0.035) 118px 119px),
+    var(--bg);
+}
+
+/* hover image index list (bikes) */
+.index-row .row-preview {
+  opacity: 0;
+  transform: scale(0.92) rotate(-2deg);
+  transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.index-row:hover .row-preview {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+.index-row .row-title {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+}
+.index-row:hover .row-title {
+  transform: translateX(1.2rem);
+  color: var(--accent);
+}
+
+/* lightbox */
+.lightbox-backdrop {
+  background: rgba(10, 9, 7, 0.93);
+}
+
+/* corner ticks for editorial cards */
+.ticks {
+  position: relative;
+}
+.ticks::before,
+.ticks::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--accent);
+  border-style: solid;
+  opacity: 0.85;
+}
+.ticks::before {
+  top: -1px;
+  left: -1px;
+  border-width: 1.5px 0 0 1.5px;
+}
+.ticks::after {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 1.5px 1.5px 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .bubble,
+  .swim,
+  .grain::after {
+    animation: none !important;
+  }
+}
