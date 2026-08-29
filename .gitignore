@@ -6,3 +6,4 @@ _tools/package*.json
 *.log
 .mimosa/
 _shots/
+_tools/*.log

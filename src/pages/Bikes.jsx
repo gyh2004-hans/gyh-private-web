@@ -9,7 +9,7 @@ import { BIKES } from "../data/content.js";
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const STATS = [
-  { to: 12, label: "收录旗舰车型", suffix: "款" },
+  { to: 11, label: "收录旗舰车型", suffix: "款" },
   { to: 6.6, label: "最轻整车重量", suffix: "kg", decimals: 1 },
   { to: 2, label: "年份跨度", suffix: "年" },
 ];

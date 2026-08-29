@@ -32,7 +32,7 @@ export const MODULES = [
     en: "Cycling",
     tagline: "两轮之上的轻与快",
     desc: "近两年各大品牌的旗舰公路车",
-    cover: img("bikes/bike-tarmac-sl8.jpg"),
+    cover: img("bikes/bike-colnago-v4rs.jpg"),
     accentWord: "PELOTON",
   },
   {
@@ -60,7 +60,7 @@ export const MODULES = [
 ];
 
 export const RACING = {
-  heroImage: img("racing/f1/redbull-donut.jpg"),
+  heroImage: img("racing/f1/f1-redbull-car.jpg"),
   intro:
     "从周末清晨的排位赛到耐力赛的漫长黄昏，方程式与 GT 是同一件事的两面：极致的工程，与极致的人。",
   f1: {
@@ -72,7 +72,6 @@ export const RACING = {
       { name: "双雄插画", team: "Verstappen & Hamilton", img: img("racing/f1/art-verstappen-hamilton.jpg"), note: "水彩风格的围场双雄" },
       { name: "Halo 座舱", team: "安全结构细节", img: img("racing/f1/mercedes-halo-detail.jpg"), note: "安全与美学的平衡之作" },
       { name: "雨中银箭", team: "Wet Conditions", img: img("racing/f1/mercedes-spray.jpg"), note: "雨雾里最迷人的水花" },
-      { name: "夜赛灯光下", team: "Night Race", img: img("racing/f1/mercedes-night.jpg"), note: "新加坡式夜赛的光影" },
       { name: "速度的残影", team: "Panning Shot", img: img("racing/f1/mercedes-blur.jpg"), note: "慢门追随拍摄的流动感" },
     ],
     drivers: [
@@ -129,9 +128,7 @@ export const CARS = {
       brand: "Audi RS",
       slogan: "Vorsprung durch Technik",
       cars: [
-        { name: "RS7 Sportback", img: img("cars/audi-rs/rs7-sunset.jpg"), note: "夕阳下的溜背绅士" },
         { name: "ABT 改 RS", img: img("cars/audi-rs/abt-rs-grey.jpg"), note: "德国改装厂的性能加成" },
-        { name: "ABT 前脸细节", img: img("cars/audi-rs/abt-front-detail.jpg"), note: "蜂窝格栅与红色卡钳" },
         { name: "RS6 Avant", img: img("cars/audi-rs/audi-rs6-avant.jpg"), note: "地表最强旅行车" },
         { name: "RS3", img: img("cars/audi-rs/audi-rs3.jpg"), note: "五缸机最后的坚守" },
         { name: "RS e-tron GT", img: img("cars/audi-rs/audi-etron-gt.jpg"), note: "电动四门 GT 的新答案" },
@@ -161,7 +158,7 @@ export const CARS = {
 };
 
 export const BIKES = {
-  heroImage: img("bikes/bike-tarmac-sl8.jpg"),
+  heroImage: img("bikes/bike-colnago-v4rs.jpg"),
   intro:
     "近两年是公路车的「全能化」时代：气动车越来越轻，爬坡车越来越快，旗舰之间的界限正在消失。以下是我关注的各家旗舰。",
   list: [
@@ -172,7 +169,6 @@ export const BIKES = {
     { brand: "Canyon", model: "Aeroad CFR", year: "2024", type: "气动", weight: "6.8 kg", note: "直供职业队的气动战车", img: img("bikes/bike-aeroad-cfr.jpg") },
     { brand: "BMC", model: "Teammachine SLR01", year: "2024", type: "全能", weight: "6.8 kg", note: "职业车队口碑之作，爬坡与气动的平衡", img: img("bikes/bike-bmc-r01.jpg") },
     { brand: "Colnago", model: "V4Rs", year: "2024", type: "全能气动", weight: "7.0 kg", note: "环法冠军同款座驾", img: img("bikes/bike-colnago-v4rs.jpg") },
-    { brand: "Giant", model: "Propel", year: "2025", type: "气动", weight: "7.2 kg", note: "大厂的均衡之作", img: img("bikes/bike-propel.jpg") },
     { brand: "Scott", model: "Foil RC", year: "2025", type: "气动", weight: "6.9 kg", note: "整合把立的气动旗舰", img: img("bikes/bike-foil-rc.jpg") },
     { brand: "ENVE", model: "Melee", year: "2024", type: "全能", weight: "6.6 kg", note: "碳纤大厂自制车架的诚意", img: img("bikes/bike-enve-melee.jpg") },
     { brand: "Wilier", model: "Filante SLR", year: "2024", type: "气动", weight: "6.9 kg", note: "意式美学与轻量兼得", img: img("bikes/bike-wilier-filante.jpg") },

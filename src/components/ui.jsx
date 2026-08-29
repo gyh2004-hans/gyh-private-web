@@ -104,7 +104,7 @@ export function ModuleHero({ image, en, zh, intro, word, children }) {
         <img src={image} alt="" className="h-full w-full scale-110 object-cover" />
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(to top, var(--bg) 10%, color-mix(in srgb, var(--bg) 78%, transparent) 46%, color-mix(in srgb, var(--bg) 35%, transparent) 72%, transparent 92%)" }}
+          style={{ background: "linear-gradient(to top, var(--bg) 7%, color-mix(in srgb, var(--bg) 70%, transparent) 34%, color-mix(in srgb, var(--bg) 10%, transparent) 58%, transparent 80%)" }}
         />
       </div>
       <div className="relative z-10 mx-auto w-full max-w-[1440px] px-5 pb-24 pt-40 md:px-10">
