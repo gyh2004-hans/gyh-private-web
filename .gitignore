@@ -2,3 +2,4 @@ _tools/
 **/.mimosa/
 _shots/
 *.log
+.worktrees/
