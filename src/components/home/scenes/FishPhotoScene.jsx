@@ -3,6 +3,8 @@ import { gsap } from 'gsap'
 
 import PhotoMotionScene, { usePhotoSceneMotion } from '../PhotoMotionScene.jsx'
 
+export const FISH_CAUSTICS_OFFSET = Object.freeze({ x: 7, y: 3 })
+
 export default function FishPhotoScene({ theme, active, progress }) {
   const sceneRef = useRef(null)
 
@@ -14,8 +16,8 @@ export default function FishPhotoScene({ theme, active, progress }) {
       ease: 'none',
     })
     gsap.to('.photo-scene__caustics', {
-      x: 8,
-      y: 3,
+      x: FISH_CAUSTICS_OFFSET.x,
+      y: FISH_CAUSTICS_OFFSET.y,
       duration: 8,
       repeat: -1,
       yoyo: true,

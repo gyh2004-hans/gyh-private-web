@@ -3,6 +3,7 @@ import { MemoryRouter } from 'react-router-dom'
 import { describe, expect, it, vi } from 'vitest'
 
 import Home from '../Home.jsx'
+import { FISH_CAUSTICS_OFFSET } from '../../components/home/scenes/FishPhotoScene.jsx'
 
 const { wipeMock } = vi.hoisted(() => ({
   wipeMock: vi.fn(),
@@ -17,6 +18,10 @@ vi.mock('../../components/reactbits/SpecularButton/SpecularButton.jsx', () => ({
 }))
 
 describe('Home', () => {
+  it('将水族焦散的合成位移限制在 8px 内', () => {
+    expect(Math.hypot(FISH_CAUSTICS_OFFSET.x, FISH_CAUSTICS_OFFSET.y)).toBeLessThanOrEqual(8)
+  })
+
   it('呈现笔记本主页的品牌、主题滚轮与首个主题入口', () => {
     render(
       <MemoryRouter>
