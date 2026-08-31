@@ -3,9 +3,10 @@ export function clamp(value, min, max) {
 }
 
 export function splitPosition(position, count) {
-  const boundedPosition = clamp(position, 0, count - 1)
+  const maxIndex = Math.max(0, count - 1)
+  const boundedPosition = clamp(position, 0, maxIndex)
   const from = Math.floor(boundedPosition)
-  const to = Math.min(count - 1, from + 1)
+  const to = Math.min(maxIndex, from + 1)
 
   return {
     from,

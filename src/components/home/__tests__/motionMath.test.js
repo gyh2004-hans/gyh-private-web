@@ -16,6 +16,10 @@ describe('splitPosition', () => {
   it('在末端保持最后一个主题且进度归零', () => {
     expect(splitPosition(4, 5)).toEqual({ from: 4, to: 4, progress: 0 })
   })
+
+  it('在没有主题时保持安全的零位置', () => {
+    expect(splitPosition(2, 0)).toEqual({ from: 0, to: 0, progress: 0 })
+  })
 })
 
 describe('pointerTilt', () => {
