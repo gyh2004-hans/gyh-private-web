@@ -5,6 +5,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import Home from '../Home.jsx'
 import { FISH_CAUSTICS_OFFSET } from '../../components/home/scenes/FishPhotoScene.jsx'
+import homeStyles from '../../styles/global.css?raw'
 
 const { wipeMock } = vi.hoisted(() => ({
   wipeMock: vi.fn(),
@@ -43,6 +44,15 @@ describe('Home', () => {
     expect(screen.getByRole('listbox', { name: /option wheel/i })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'ENTER F1' })).toBeInTheDocument()
     expect(screen.queryByText('MENU')).not.toBeInTheDocument()
+  })
+
+  it('将主页入口抬离笔记本底座的遮挡区域', () => {
+    const ctaRules = [...homeStyles.matchAll(/\.screen-experience__cta\s*\{([^}]*)\}/g)]
+      .map((match) => match[1])
+      .filter((rule) => /bottom:/.test(rule))
+
+    expect(ctaRules).toHaveLength(2)
+    expect(ctaRules.every((rule) => /bottom:\s*10%/.test(rule))).toBe(true)
   })
 
   it('挂载五组真实照片动态场景', () => {

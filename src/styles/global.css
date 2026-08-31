@@ -448,7 +448,7 @@ body {
 .screen-experience__cta {
   position: absolute;
   left: 50%;
-  bottom: 6%;
+  bottom: 10%;
   z-index: 40;
   transform: translateX(-50%);
 }
@@ -715,7 +715,7 @@ body {
   }
 
   .screen-experience__cta {
-    bottom: 5%;
+    bottom: 10%;
   }
 
   .fx--flash,
