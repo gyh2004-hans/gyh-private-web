@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { describe, expect, it, vi } from 'vitest'
 
@@ -28,5 +28,18 @@ describe('Home', () => {
     expect(screen.getByRole('listbox', { name: /option wheel/i })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'ENTER F1' })).toBeInTheDocument()
     expect(screen.queryByText('MENU')).not.toBeInTheDocument()
+  })
+
+  it('挂载五组真实照片动态场景', () => {
+    const { container } = render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>,
+    )
+    const view = within(container)
+
+    for (const label of ['F1 scene', 'M4 scene', 'COLNAGO scene', 'FISH scene', 'PHOTO scene']) {
+      expect(view.getByLabelText(label)).toBeInTheDocument()
+    }
   })
 })

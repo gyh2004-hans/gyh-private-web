@@ -1,5 +1,18 @@
 import OptionWheel from '../reactbits/OptionWheel/OptionWheel.jsx'
 import SpecularButton from '../reactbits/SpecularButton/SpecularButton.jsx'
+import ColnagoPhotoScene from './scenes/ColnagoPhotoScene.jsx'
+import F1PhotoScene from './scenes/F1PhotoScene.jsx'
+import FishPhotoScene from './scenes/FishPhotoScene.jsx'
+import M4PhotoScene from './scenes/M4PhotoScene.jsx'
+import PhotoPhotoScene from './scenes/PhotoPhotoScene.jsx'
+
+const SCENES = [
+  F1PhotoScene,
+  M4PhotoScene,
+  ColnagoPhotoScene,
+  FishPhotoScene,
+  PhotoPhotoScene,
+]
 
 export default function ScreenExperience({
   themes,
@@ -15,7 +28,19 @@ export default function ScreenExperience({
       <div className="screen-experience__word" aria-hidden="true">
         {activeWord}
       </div>
-      <div className="screen-experience__scenes" data-testid="photo-scenes" />
+      <div className="screen-experience__scenes" data-testid="photo-scenes">
+        {themes.map((theme, index) => {
+          const Scene = SCENES[index]
+          return (
+            <Scene
+              key={theme.id}
+              theme={theme}
+              active={Math.abs(index - active) <= 1}
+              progress={index - active}
+            />
+          )
+        })}
+      </div>
       <div className="screen-experience__brand">GYH</div>
       <div className="screen-experience__wheel">
         <OptionWheel
