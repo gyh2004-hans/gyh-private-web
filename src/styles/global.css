@@ -296,7 +296,7 @@ body {
   right: 4%;
   top: 4%;
   height: 52%;
-  background: radial-gradient(ellipse at center, rgba(15, 16, 18, 0.5), transparent 69%);
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.44), transparent 68%);
   filter: blur(18px);
 }
 
@@ -321,6 +321,7 @@ body {
   overflow: hidden;
   border-radius: 22px 22px 7px 7px;
   background: #0b0c0e;
+  transform-style: preserve-3d;
   box-shadow:
     0 22px 55px rgba(0, 0, 0, 0.28),
     inset 0 0 0 1px rgba(255, 255, 255, 0.08),
@@ -343,7 +344,7 @@ body {
   bottom: 1%;
   height: 21%;
   border-radius: 5px 5px 22px 22px;
-  background: linear-gradient(180deg, #d8d9d9 0%, #9fa1a2 24%, #5e6062 72%, #26282a 100%);
+  background: linear-gradient(180deg, #292b30, #0c0d10 72%);
   transform: rotateX(72deg) translateZ(-18px);
   transform-origin: top;
   box-shadow: 0 28px 36px rgba(0, 0, 0, 0.32);
@@ -420,7 +421,7 @@ body {
 }
 
 .screen-experience__wheel {
-  --ow-text-color: rgba(255, 255, 255, 0.42);
+  --ow-text-color: rgba(255, 255, 255, 0.24);
   --ow-active-color: #fff;
   position: absolute;
   right: 2.5%;
@@ -431,6 +432,11 @@ body {
   border-right: 1px solid rgba(255, 255, 255, 0.22);
   background: linear-gradient(90deg, transparent, rgba(7, 9, 10, 0.1));
   mask-image: linear-gradient(transparent, #000 18%, #000 82%, transparent);
+}
+
+.screen-experience__wheel .option-wheel {
+  --ow-text-color: rgba(255, 255, 255, 0.24);
+  --ow-active-color: #fff;
 }
 
 .screen-experience__wheel .option-wheel__item {
@@ -452,7 +458,7 @@ body {
   inset: 0;
   z-index: 50;
   pointer-events: none;
-  background: linear-gradient(116deg, rgba(255, 255, 255, 0.13), transparent 25%, transparent 68%, rgba(255, 255, 255, 0.035));
+  background: linear-gradient(112deg, rgba(255, 255, 255, 0.08), transparent 38%);
   mix-blend-mode: screen;
 }
 
@@ -495,71 +501,74 @@ body {
 .photo-scene__reflection,
 .photo-scene__light-trail {
   position: absolute;
+  inset: 0;
   pointer-events: none;
+  will-change: transform, opacity;
 }
 
 .fx--heat,
 .photo-scene__heat {
   inset: 42% 16% 0 18%;
-  opacity: 0.24;
+  opacity: 0.2;
   background: repeating-linear-gradient(90deg, transparent 0 5px, rgba(255, 255, 255, 0.14) 6px, transparent 8px);
   filter: blur(3px);
+  backdrop-filter: blur(0.4px);
   mix-blend-mode: soft-light;
   mask-image: linear-gradient(transparent, #000 30%, transparent);
 }
 
 .fx--smoke,
+.fx--smoke-layer,
 .photo-scene__smoke {
-  width: 42%;
-  height: 40%;
+  inset: 22% -8% -8% 28%;
   border-radius: 50%;
-  opacity: 0.32;
-  filter: blur(24px);
+  opacity: 0.36;
+  filter: blur(16px);
   background: radial-gradient(circle at 48% 52%, rgba(220, 224, 222, 0.72), rgba(155, 162, 163, 0.26) 42%, transparent 72%);
   mix-blend-mode: screen;
 }
 
 .fx--smoke-one,
+.fx--smoke-a,
 .photo-scene__smoke--one {
-  left: -7%;
-  bottom: -9%;
+  transform: translate(0, 0) scale(1);
 }
 
 .fx--smoke-two,
+.fx--smoke-b,
 .photo-scene__smoke--two {
-  left: 19%;
-  bottom: -16%;
-  transform: scale(1.2);
+  transform: translate(-12%, 8%) scale(0.82);
 }
 
 .fx--smoke-three,
+.fx--smoke-c,
 .photo-scene__smoke--three {
-  right: 18%;
-  bottom: -18%;
-  transform: scale(0.86);
+  transform: translate(8%, -10%) scale(0.68);
 }
 
 .fx--flash,
 .photo-scene__flash {
-  width: 8px;
-  aspect-ratio: 1;
+  inset: 18% auto auto 23%;
+  width: 4px;
+  height: 4px;
   border-radius: 50%;
   opacity: 0;
   background: #fff;
-  box-shadow: 0 0 9px 3px #fff, 0 0 24px 11px rgba(190, 220, 255, 0.7);
+  box-shadow: 0 0 4px 2px #fff, 0 0 18px 8px rgba(190, 220, 255, 0.72);
 }
 
-.photo-scene__flash--one { left: 18%; top: 21%; }
-.photo-scene__flash--two { right: 29%; top: 17%; }
+.photo-scene__flash--one { left: 23%; top: 18%; }
+.photo-scene__flash--two { left: 68%; top: 14%; }
 
 .fx--road-streak,
+.fx--road-streaks,
 .photo-scene__road-streak {
   left: -20%;
   right: -20%;
   bottom: 0;
   height: 34%;
   opacity: 0.38;
-  background: repeating-linear-gradient(103deg, transparent 0 10%, rgba(255, 245, 222, 0.28) 11%, transparent 13% 23%);
+  background: linear-gradient(90deg, transparent 0 58%, rgba(255, 255, 255, 0.1) 76%, transparent);
   filter: blur(8px);
   mix-blend-mode: screen;
   mask-image: linear-gradient(transparent, #000);
@@ -573,7 +582,7 @@ body {
   height: 8%;
   opacity: 0.42;
   border-radius: 50%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  background: linear-gradient(115deg, transparent 36%, rgba(255, 255, 255, 0.18) 48%, transparent 58%);
   filter: blur(7px);
   mix-blend-mode: screen;
   transform: rotate(-7deg);
@@ -588,6 +597,8 @@ body {
   bottom: -4%;
   height: 29%;
   background: repeating-linear-gradient(97deg, rgba(29, 58, 16, 0.8) 0 2px, transparent 3px 11px);
+  background-position: bottom;
+  background-repeat: repeat-x;
   filter: blur(2px);
   transform: skewX(-16deg);
 }
@@ -609,12 +620,12 @@ body {
 .fx--particles,
 .photo-scene__particles {
   inset: -12% 0;
-  opacity: 0.34;
+  opacity: 0.22;
   background-image:
     radial-gradient(circle, rgba(215, 246, 239, 0.78) 0 1px, transparent 1.8px),
     radial-gradient(circle, rgba(255, 255, 255, 0.52) 0 0.7px, transparent 1.4px);
   background-position: 0 0, 34px 27px;
-  background-size: 67px 79px, 91px 83px;
+  background-size: 43px 57px;
   mask-image: linear-gradient(transparent, #000 22%, #000 82%, transparent);
 }
 
@@ -633,12 +644,13 @@ body {
 }
 
 .fx--cloud,
+.fx--cloud-drift,
 .photo-scene__cloud {
   left: -14%;
   top: -8%;
   width: 65%;
   height: 43%;
-  opacity: 0.25;
+  opacity: 0.16;
   border-radius: 50%;
   background: radial-gradient(ellipse, rgba(255, 255, 255, 0.58), transparent 68%);
   filter: blur(18px);
@@ -647,26 +659,28 @@ body {
 
 .fx--reflection,
 .photo-scene__reflection {
+  top: 64%;
   left: 8%;
   right: 8%;
   bottom: -10%;
   height: 42%;
   opacity: 0.26;
   background: linear-gradient(180deg, rgba(255, 232, 195, 0.24), transparent 72%);
-  filter: blur(12px);
+  filter: blur(0.6px) saturate(1.1);
   mix-blend-mode: screen;
   transform-origin: bottom;
 }
 
 .fx--light-trail,
 .photo-scene__light-trail {
+  top: auto;
   left: 9%;
   right: 14%;
-  bottom: 28%;
+  bottom: 7%;
   height: 3px;
   opacity: 0.62;
   border-radius: 999px;
-  background: linear-gradient(90deg, transparent, #ffdf9c 14%, #fff 75%, transparent);
+  background: linear-gradient(90deg, transparent, #f23b55, #4bcde8, transparent);
   box-shadow: 0 0 12px rgba(255, 212, 137, 0.8);
   filter: blur(0.6px);
   transform-origin: left center;
@@ -683,7 +697,7 @@ body {
   .home-v3__device {
     width: 125vw;
     left: 45%;
-    transform: translate(-50%, -50%) rotateY(calc(-3deg + var(--pointer-ry))) rotateX(calc(1deg + var(--pointer-rx)));
+    transform: translate(-50%, -50%) rotateY(-3deg) rotateX(1deg);
   }
 
   .home-v3__base {
@@ -692,7 +706,8 @@ body {
 
   .screen-experience__wheel {
     right: 1%;
-    width: max(34%, 120px);
+    width: 34%;
+    min-width: 120px;
   }
 
   .screen-experience__word,
@@ -729,9 +744,11 @@ body {
   }
 
   .fx--smoke,
+  .fx--smoke-layer,
   .fx--water,
   .fx--caustics,
   .fx--cloud,
+  .fx--cloud-drift,
   .fx--reflection,
   .fx--light-trail,
   .photo-scene__smoke,
