@@ -25,19 +25,24 @@ export default function ScreenExperience({
 
   return (
     <div className="screen-experience">
-      <div className="screen-experience__word" aria-hidden="true">
-        {activeWord}
+      <div className="screen-experience__words" aria-hidden="true">
+        {themes.map((theme) => (
+          <div key={theme.id} className="screen-experience__word-slot">
+            {theme.word}
+          </div>
+        ))}
       </div>
       <div className="screen-experience__scenes" data-testid="photo-scenes">
         {themes.map((theme, index) => {
           const Scene = SCENES[index]
           return (
-            <Scene
-              key={theme.id}
-              theme={theme}
-              active={Math.abs(index - active) <= 1}
-              progress={index - active}
-            />
+            <div key={theme.id} className="screen-experience__scene-slot">
+              <Scene
+                theme={theme}
+                active={Math.abs(index - active) <= 1}
+                progress={index - active}
+              />
+            </div>
           )
         })}
       </div>
