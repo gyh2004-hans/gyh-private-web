@@ -25,6 +25,7 @@ const THEMES = Object.fromEntries(MODULES.map((m) => [m.id, m]));
 export default function App() {
   const navigate = useNavigate();
   const location = useLocation();
+  const isHome = location.pathname === "/";
   const overlayRef = useRef(null);
   const labelRef = useRef(null);
   const lenisRef = useRef(null);
@@ -90,7 +91,7 @@ export default function App() {
     <WipeCtx.Provider value={wipe}>
       <div className="theme-surface grain min-h-[100dvh]" data-route={location.pathname}>
         <Intro onDone={() => setReady(true)} />
-        <Nav />
+        {!isHome && <Nav />}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/racing" element={<Racing />} />
