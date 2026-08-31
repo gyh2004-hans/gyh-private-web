@@ -19,11 +19,16 @@ export default function Home() {
   }, [active, wipe])
 
   useEffect(() => {
+    let lastPosition
+
     const tick = () => {
       const stage = stageRef.current
       if (!stage) return
 
       const position = positionRef.current
+      if (Object.is(position, lastPosition)) return
+
+      lastPosition = position
       const { from, to, progress } = splitPosition(position, HOME_THEMES.length)
 
       stage.style.setProperty('--theme-position', String(position))
@@ -44,11 +49,13 @@ export default function Home() {
   useEffect(() => {
     const handleKeyDown = (event) => {
       const target = event.target
-      const isEditable =
+      const isInteractive =
         target instanceof Element &&
-        target.closest("input, textarea, [contenteditable='true']")
+        target.closest(
+          "input, textarea, select, button, a[href], [contenteditable='true'], [role]",
+        )
 
-      if (event.key !== 'Enter' || isEditable) return
+      if (event.key !== 'Enter' || isInteractive) return
 
       event.preventDefault()
       handleEnter()

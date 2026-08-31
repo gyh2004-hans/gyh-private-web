@@ -1,4 +1,5 @@
 import { cleanup, fireEvent, render, screen, within } from '@testing-library/react'
+import { gsap } from 'gsap'
 import { MemoryRouter } from 'react-router-dom'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
@@ -24,6 +25,7 @@ describe('Home', () => {
 
   afterEach(() => {
     cleanup()
+    vi.restoreAllMocks()
   })
 
   it('将水族焦散的合成位移限制在 8px 内', () => {
@@ -63,9 +65,15 @@ describe('Home', () => {
       </MemoryRouter>,
     )
 
-    fireEvent.click(screen.getByRole('button', { name: 'ENTER F1' }))
+    const enterButton = screen.getByRole('button', { name: 'ENTER F1' })
+
+    fireEvent.keyDown(enterButton, { key: 'Enter' })
+    expect(wipeMock).not.toHaveBeenCalled()
+
+    fireEvent.click(enterButton)
 
     expect(wipeMock).toHaveBeenCalledWith('/racing', 'F1')
+    expect(wipeMock).toHaveBeenCalledTimes(1)
   })
 
   it('enters the active theme when Enter is pressed outside an editable field', () => {
@@ -78,5 +86,28 @@ describe('Home', () => {
     fireEvent.keyDown(window, { key: 'Enter' })
 
     expect(wipeMock).toHaveBeenCalledWith('/racing', 'F1')
+  })
+
+  it('does not rewrite theme CSS variables while the wheel position is unchanged', () => {
+    const tickerCallbacks = []
+    vi.spyOn(gsap.ticker, 'add').mockImplementation((callback) => {
+      tickerCallbacks.push(callback)
+    })
+
+    render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>,
+    )
+
+    expect(tickerCallbacks).toHaveLength(1)
+    const setPropertySpy = vi.spyOn(CSSStyleDeclaration.prototype, 'setProperty')
+
+    tickerCallbacks[0]()
+    const writesAfterFirstTick = setPropertySpy.mock.calls.length
+    tickerCallbacks[0]()
+
+    expect(writesAfterFirstTick).toBe(3)
+    expect(setPropertySpy).toHaveBeenCalledTimes(writesAfterFirstTick)
   })
 })
