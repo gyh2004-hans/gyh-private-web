@@ -1,4 +1,4 @@
-import { cleanup, render, screen } from "@testing-library/react";
+import { cleanup, render, screen, waitFor } from "@testing-library/react";
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
@@ -67,6 +67,19 @@ describe("App navigation visibility", () => {
 
     expect(screen.getByText("RACING PAGE")).toBeInTheDocument();
     expect(screen.getAllByText("封面").length).toBeGreaterThan(0);
+  });
+
+  it("redirects an unknown path to the home screen without global navigation", async () => {
+    render(
+      <MemoryRouter initialEntries={["/missing"]}>
+        <App />
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(screen.getByText("HOME SCREEN")).toBeInTheDocument();
+      expect(screen.queryAllByText("封面")).toHaveLength(0);
+    });
   });
 });
 

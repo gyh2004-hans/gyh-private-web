@@ -1,7 +1,7 @@
 import { gsap } from "gsap";
 import Lenis from "lenis";
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
-import { useLocation, useNavigate, Routes, Route } from "react-router-dom";
+import { Navigate, useLocation, useNavigate, Routes, Route } from "react-router-dom";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 
@@ -99,7 +99,7 @@ export default function App() {
           <Route path="/bikes" element={<Bikes />} />
           <Route path="/photo" element={<Photo />} />
           <Route path="/aqua" element={<Aqua />} />
-          <Route path="*" element={<Home />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
 
         {/* module wipe transition overlay */}
