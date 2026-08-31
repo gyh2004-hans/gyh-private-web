@@ -87,10 +87,18 @@ describe("HOME v3 visual contract", () => {
       "inset:22% -8% -8% 28%",
       "opacity:.36",
       "filter:blur(16px)",
+      "background:radial-gradient(ellipse at 70% 52%,rgba(255,255,255,.74),rgba(220,230,232,.22) 42%,transparent 72%)",
     );
     expectRule(".fx--smoke-b", "transform:translate(-12%,8%) scale(.82)");
     expectRule(".fx--smoke-c", "transform:translate(8%,-10%) scale(.68)");
-    expectRule(".fx--flash", "width:4px", "height:4px", "inset:18% auto auto 23%");
+    expectRule(
+      ".fx--flash",
+      "width:4px",
+      "height:4px",
+      "inset:18% auto auto 23%",
+      "box-shadow:0 0 22px 8px rgba(255,255,255,.62)",
+    );
+    expectRule(".fx--flash-b", "left:68%", "top:14%");
     expectRule(".photo-scene__flash--two", "left:68%", "top:14%");
     expectRule(
       ".fx--road-streaks",
@@ -103,7 +111,12 @@ describe("HOME v3 visual contract", () => {
     );
     expectRule(".fx--grass-near", "background-position:bottom", "background-repeat:repeat-x");
     expectRule(".fx--caustics", "opacity:.16", "mix-blend-mode:screen", "filter:blur(2px)");
-    expectRule(".fx--particles", "opacity:.22", "background-size:43px 57px");
+    expectRule(
+      ".fx--particles",
+      "opacity:.22",
+      "background-image:radial-gradient(circle,rgba(255,255,255,.7) 0 1px,transparent 1.5px)",
+      "background-size:43px 57px",
+    );
     expectRule(".fx--cloud-drift", "opacity:.16", "mix-blend-mode:screen");
     expectRule(".fx--reflection", "top:64%", "filter:blur(.6px) saturate(1.1)");
     expectRule(

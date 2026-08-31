@@ -524,7 +524,7 @@ body {
   border-radius: 50%;
   opacity: 0.36;
   filter: blur(16px);
-  background: radial-gradient(circle at 48% 52%, rgba(220, 224, 222, 0.72), rgba(155, 162, 163, 0.26) 42%, transparent 72%);
+  background: radial-gradient(ellipse at 70% 52%, rgba(255, 255, 255, 0.74), rgba(220, 230, 232, 0.22) 42%, transparent 72%);
   mix-blend-mode: screen;
 }
 
@@ -554,10 +554,11 @@ body {
   border-radius: 50%;
   opacity: 0;
   background: #fff;
-  box-shadow: 0 0 4px 2px #fff, 0 0 18px 8px rgba(190, 220, 255, 0.72);
+  box-shadow: 0 0 22px 8px rgba(255, 255, 255, 0.62);
 }
 
 .photo-scene__flash--one { left: 23%; top: 18%; }
+.fx--flash-b,
 .photo-scene__flash--two { left: 68%; top: 14%; }
 
 .fx--road-streak,
@@ -621,9 +622,7 @@ body {
 .photo-scene__particles {
   inset: -12% 0;
   opacity: 0.22;
-  background-image:
-    radial-gradient(circle, rgba(215, 246, 239, 0.78) 0 1px, transparent 1.8px),
-    radial-gradient(circle, rgba(255, 255, 255, 0.52) 0 0.7px, transparent 1.4px);
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.7) 0 1px, transparent 1.5px);
   background-position: 0 0, 34px 27px;
   background-size: 43px 57px;
   mask-image: linear-gradient(transparent, #000 22%, #000 82%, transparent);
