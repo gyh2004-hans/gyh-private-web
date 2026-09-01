@@ -18,6 +18,7 @@ export const HOME_THEMES = [
   {
     id: 'racing',
     word: 'F1',
+    controlLabel: 'F1',
     route: '/racing',
     matte: [24, 54, 56],
     focus: '50% 52%',
@@ -31,6 +32,7 @@ export const HOME_THEMES = [
   {
     id: 'cars',
     word: 'M4',
+    controlLabel: 'CAR',
     route: '/cars',
     matte: [141, 116, 31],
     focus: '50% 49%',
@@ -44,6 +46,7 @@ export const HOME_THEMES = [
   {
     id: 'bikes',
     word: 'COLNAGO',
+    controlLabel: 'BICYCLE',
     route: '/bikes',
     matte: [182, 190, 190],
     focus: '43% 55%',
@@ -57,6 +60,7 @@ export const HOME_THEMES = [
   {
     id: 'aqua',
     word: 'FISH',
+    controlLabel: 'FISH',
     route: '/aqua',
     matte: [16, 45, 42],
     focus: '50% 54%',
@@ -70,6 +74,7 @@ export const HOME_THEMES = [
   {
     id: 'photo',
     word: 'PHOTO',
+    controlLabel: 'PHOTO',
     route: '/photo',
     matte: [17, 56, 88],
     focus: '54% 48%',

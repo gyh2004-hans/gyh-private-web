@@ -21,6 +21,27 @@ export function usePhotoSceneMotion(sceneRef, active, setup) {
   )
 }
 
+function responsiveImageProps(theme) {
+  return {
+    src: theme.sources[1].src,
+    srcSet: theme.sources.map(({ src, width }) => `${src} ${width}w`).join(', '),
+    sizes: '(max-width: 960px) 960px, (max-width: 1600px) 1600px, 2560px',
+  }
+}
+
+export function PhotoLayer({ theme, layer, className = '' }) {
+  return (
+    <img
+      {...responsiveImageProps(theme)}
+      className={`photo-scene__layer photo-scene__layer--${layer} ${className}`.trim()}
+      data-photo-layer={layer}
+      alt=""
+      aria-hidden="true"
+      draggable={false}
+    />
+  )
+}
+
 export default function PhotoMotionScene({
   theme,
   active,
@@ -29,7 +50,6 @@ export default function PhotoMotionScene({
   sceneRef,
   children,
 }) {
-  const srcSet = theme.sources.map(({ src, width }) => `${src} ${width}w`).join(', ')
   const classes = [`photo-scene`, `photo-scene--${theme.effect}`, className]
     .filter(Boolean)
     .join(' ')
@@ -46,10 +66,8 @@ export default function PhotoMotionScene({
       }}
     >
       <img
+        {...responsiveImageProps(theme)}
         className="photo-scene__image"
-        src={theme.sources[1].src}
-        srcSet={srcSet}
-        sizes="(max-width: 960px) 960px, (max-width: 1600px) 1600px, 2560px"
         alt=""
         draggable={false}
       />

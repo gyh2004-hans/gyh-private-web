@@ -46,6 +46,29 @@ describe('Home', () => {
     expect(screen.queryByText('MENU')).not.toBeInTheDocument()
   })
 
+  it('切换到汽车和自行车时显示修订后的滚轮与入口文案', () => {
+    render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>,
+    )
+
+    const wheel = screen.getByRole('listbox', { name: /option wheel/i })
+    fireEvent.keyDown(wheel, { key: 'ArrowDown' })
+    expect(screen.getByRole('button', { name: 'ENTER CAR' })).toBeInTheDocument()
+    expect(within(wheel).getByText('CAR')).toBeInTheDocument()
+
+    fireEvent.keyDown(wheel, { key: 'ArrowDown' })
+    expect(screen.getByRole('button', { name: 'ENTER BICYCLE' })).toBeInTheDocument()
+    expect(within(wheel).getByText('BICYCLE')).toBeInTheDocument()
+  })
+
+  it('保留完整可见的笔记本框架，而不是让屏幕铺满视口', () => {
+    expect(homeStyles).toMatch(/\.home-v3__device\s*\{[^}]*width:\s*min\(94vw,\s*1460px\)/)
+    expect(homeStyles).toMatch(/\.home-v3__device\s*\{[^}]*top:\s*54%/)
+    expect(homeStyles).toMatch(/\.home-v3__lid\s*\{[^}]*inset:\s*0\s+2%\s+14%/)
+  })
+
   it('按计划定位桌面端与移动端主页入口', () => {
     const ctaRules = [...homeStyles.matchAll(/\.screen-experience__cta\s*\{([^}]*)\}/g)]
       .map((match) => match[1])

@@ -133,7 +133,7 @@
 
 - 放在屏幕内右侧，使用 `side="right"`。
 - 当前主题完整高亮；上下相邻主题保留弧形、模糊和透明衰减。
-- `items` 使用 `F1 / M4 / COLNAGO / FISH / PHOTO`。
+- `items` 使用 `F1 / CAR / BICYCLE / FISH / PHOTO`。
 - 非当前项点击只改变选择，不直接跳转。
 - 鼠标滚轮和触控板连续跟手；停止约 `140ms` 后吸附到最近主题。
 - 移动端支持纵向拖拽。
@@ -145,7 +145,7 @@
 使用 React Bits 官方 `SpecularButton` 的 JS + CSS 版本，并安装其官方依赖 `ogl`。
 
 - 位于屏幕中央下方。
-- 文案随主题变化：`ENTER F1 / ENTER M4 / ENTER COLNAGO / ENTER FISH / ENTER PHOTO`。
+- 文案随主题变化：`ENTER F1 / ENTER CAR / ENTER BICYCLE / ENTER FISH / ENTER PHOTO`。
 - 按钮是进入专题页的唯一主操作。
 - 默认保持低强度自动扫光，使按钮在没有指针活动时仍可识别。
 - 鼠标进入接近范围后，高光转为跟随指针。

@@ -22,6 +22,16 @@ describe('HOME_THEMES', () => {
     ])
   })
 
+  it('为滚轮与入口使用修订后的用户可见文案', () => {
+    expect(HOME_THEMES.map(({ controlLabel }) => controlLabel)).toEqual([
+      'F1',
+      'CAR',
+      'BICYCLE',
+      'FISH',
+      'PHOTO',
+    ])
+  })
+
   it('为每个主题提供三档可移植图片源', () => {
     for (const theme of HOME_THEMES) {
       expect(theme.sources.map(({ width }) => width)).toEqual([960, 1600, 2560])

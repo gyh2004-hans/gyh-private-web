@@ -1,18 +1,46 @@
 import { useRef } from 'react'
 import { gsap } from 'gsap'
 
-import PhotoMotionScene, { usePhotoSceneMotion } from '../PhotoMotionScene.jsx'
+import PhotoMotionScene, { PhotoLayer, usePhotoSceneMotion } from '../PhotoMotionScene.jsx'
 
 export default function F1PhotoScene({ theme, active, progress }) {
   const sceneRef = useRef(null)
 
   usePhotoSceneMotion(sceneRef, active, () => {
-    gsap.to('.photo-scene__smoke', {
-      xPercent: 8,
-      scale: 1.08,
-      opacity: 0.48,
-      duration: 6,
-      stagger: 0.8,
+    gsap.to('.photo-scene__layer--smoke-back', {
+      xPercent: 1.4,
+      scale: 1.025,
+      opacity: 0.5,
+      duration: 8.5,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut',
+    })
+    gsap.to('.photo-scene__layer--smoke-mid', {
+      xPercent: 2.2,
+      yPercent: -0.5,
+      scale: 1.035,
+      opacity: 0.64,
+      duration: 6.4,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut',
+    })
+    gsap.to('.photo-scene__layer--smoke-front', {
+      xPercent: 3.2,
+      yPercent: -0.8,
+      scale: 1.045,
+      opacity: 0.76,
+      duration: 4.8,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut',
+    })
+    gsap.to('.photo-scene__layer--car', {
+      x: 0.7,
+      y: -0.8,
+      rotation: 0.045,
+      duration: 0.09,
       repeat: -1,
       yoyo: true,
       ease: 'sine.inOut',
@@ -42,9 +70,10 @@ export default function F1PhotoScene({ theme, active, progress }) {
 
   return (
     <PhotoMotionScene theme={theme} active={active} progress={progress} sceneRef={sceneRef}>
-      <div className="photo-scene__smoke photo-scene__smoke--one" aria-hidden="true" />
-      <div className="photo-scene__smoke photo-scene__smoke--two" aria-hidden="true" />
-      <div className="photo-scene__smoke photo-scene__smoke--three" aria-hidden="true" />
+      <PhotoLayer theme={theme} layer="smoke-back" />
+      <PhotoLayer theme={theme} layer="smoke-mid" />
+      <PhotoLayer theme={theme} layer="smoke-front" />
+      <PhotoLayer theme={theme} layer="car" />
       <div className="photo-scene__heat" aria-hidden="true" />
       <div className="photo-scene__flash photo-scene__flash--one" aria-hidden="true" />
       <div className="photo-scene__flash photo-scene__flash--two" aria-hidden="true" />

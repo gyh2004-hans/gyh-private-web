@@ -21,7 +21,7 @@ export default function ScreenExperience({
   onPositionChange,
   onEnter,
 }) {
-  const activeWord = themes[active]?.word ?? ''
+  const activeControlLabel = themes[active]?.controlLabel ?? ''
 
   return (
     <div className="screen-experience">
@@ -49,7 +49,7 @@ export default function ScreenExperience({
       <div className="screen-experience__brand">GYH</div>
       <div className="screen-experience__wheel">
         <OptionWheel
-          items={themes.map((theme) => theme.word)}
+          items={themes.map((theme) => theme.controlLabel)}
           defaultSelected={0}
           side="right"
           fontSize={1.45}
@@ -74,7 +74,7 @@ export default function ScreenExperience({
           tintOpacity={0.08}
           onClick={onEnter}
         >
-          ENTER {activeWord}
+          ENTER {activeControlLabel}
         </SpecularButton>
       </div>
       <div className="screen-experience__glare" aria-hidden="true" />

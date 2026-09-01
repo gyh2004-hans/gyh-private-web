@@ -86,54 +86,52 @@ describe("App navigation visibility", () => {
 describe("HOME v3 visual contract", () => {
   it("keeps the laptop geometry, effects, responsive layout and reduced motion values exact", () => {
     expectRule(".home-v3__lid", "transform-style:preserve-3d");
-    expectRule(".home-v3__base", "background:linear-gradient(180deg,#292b30,#0c0d10 72%)");
+    expectRule(".home-v3__device", "width:min(94vw,1460px)", "top:54%");
+    expectRule(".home-v3__lid", "inset:0 2% 14%");
+    expectRule(
+      ".home-v3__base",
+      "background:linear-gradient(180deg,#3b3e44 0%,#17191d 18%,#090a0c 74%)",
+    );
     expectRule(
       ".home-v3__desk::after",
       "background:radial-gradient(ellipse at center,rgba(0,0,0,.44),transparent 68%)",
     );
 
-    expectRule(".fx", "inset:0", "will-change:transform,opacity");
-    expectRule(".photo-scene__smoke", "will-change:transform,opacity");
-    expectRule(".fx--heat", "backdrop-filter:blur(.4px)", "opacity:.2");
+    expectRule(".photo-scene__layer", "z-index:2", "will-change:transform,opacity");
+    expectRule(".photo-scene__heat", "backdrop-filter:blur(1.2px) saturate(1.08)", "opacity:.34");
     expectRule(
-      ".fx--smoke-layer",
-      "inset:22% -8% -8% 28%",
-      "opacity:.36",
-      "filter:blur(16px)",
-      "background:radial-gradient(ellipse at 70% 52%,rgba(255,255,255,.74),rgba(220,230,232,.22) 42%,transparent 72%)",
+      ".photo-scene--f1 .photo-scene__layer--smoke-back",
+      "opacity:.46",
+      "filter:blur(5px) saturate(.72) brightness(1.08)",
     );
-    expectRule(".fx--smoke-b", "transform:translate(-12%,8%) scale(.82)");
-    expectRule(".fx--smoke-c", "transform:translate(8%,-10%) scale(.68)");
     expectRule(
-      ".fx--flash",
+      ".photo-scene__flash",
       "width:4px",
       "height:4px",
       "inset:18% auto auto 23%",
       "box-shadow:0 0 22px 8px rgba(255,255,255,.62)",
     );
-    expectRule(".fx--flash-b", "left:68%", "top:14%");
     expectRule(".photo-scene__flash--two", "left:68%", "top:14%");
     expectRule(
-      ".fx--road-streaks",
-      "background:linear-gradient(90deg,transparent 0 58%,rgba(255,255,255,.1) 76%,transparent)",
-      "mix-blend-mode:screen",
+      ".photo-scene__road-streak",
+      "filter:blur(3.5px) saturate(.88)",
+      "mask-image:linear-gradient(to bottom,transparent 0 66%,#000 80% 100%)",
     );
     expectRule(
-      ".fx--paint-highlight",
+      ".photo-scene__paint-highlight",
       "background:linear-gradient(115deg,transparent 36%,rgba(255,255,255,.18) 48%,transparent 58%)",
     );
-    expectRule(".fx--grass-near", "background-position:bottom", "background-repeat:repeat-x");
-    expectRule(".fx--caustics", "opacity:.16", "mix-blend-mode:screen", "filter:blur(2px)");
+    expectRule(".photo-scene__grass-near", "filter:blur(1.6px) saturate(1.04)");
+    expectRule(".photo-scene__caustics", "opacity:.12", "mix-blend-mode:screen", "filter:blur(14px)");
     expectRule(
-      ".fx--particles",
-      "opacity:.22",
-      "background-image:radial-gradient(circle,rgba(255,255,255,.7) 0 1px,transparent 1.5px)",
-      "background-size:43px 57px",
+      ".photo-scene__particle",
+      "left:var(--particle-x)",
+      "top:var(--particle-y)",
     );
-    expectRule(".fx--cloud-drift", "opacity:.16", "mix-blend-mode:screen");
-    expectRule(".fx--reflection", "top:64%", "filter:blur(.6px) saturate(1.1)");
+    expectRule(".photo-scene--photo .photo-scene__layer--clouds", "opacity:.72");
+    expectRule(".photo-scene--photo .photo-scene__layer--reflection", "filter:blur(1.1px) saturate(1.18)");
     expectRule(
-      ".fx--light-trail",
+      ".photo-scene__light-trail",
       "top:auto",
       "bottom:7%",
       "height:3px",
@@ -155,11 +153,7 @@ describe("HOME v3 visual contract", () => {
     expectRule(".screen-experience__wheel", "inset:0", "width:auto");
     expectRule(".screen-experience__wheel", "width:100vw", "min-width:0");
     expectRule(".screen-experience__wheel::after", "width:34%", "min-width:120px");
-    expect(homeCss).toContain(".fx--smoke-layer");
-    expect(homeCss).toContain(".fx--smoke-a");
-    expect(homeCss).toContain(".fx--smoke-b");
-    expect(homeCss).toContain(".fx--smoke-c");
-    expect(homeCss).toContain(".fx--road-streaks");
-    expect(homeCss).toContain(".fx--cloud-drift");
+    expect(homeCss).not.toContain("repeating-radial-gradient(ellipse");
+    expect(homeCss).not.toContain("repeating-linear-gradient(97deg");
   });
 });
