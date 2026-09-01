@@ -63,7 +63,6 @@ function MobilePill({ to, active, label }) {
       className="shrink-0 rounded-full border px-3 py-1 text-xs tracking-[0.1em]"
       style={{
         borderColor: "var(--line)",
-        color: "var(--fg)",
         background: active ? "var(--accent)" : "color-mix(in srgb, var(--bg) 70%, transparent)",
         color: active ? "#fff" : "var(--fg)",
       }}

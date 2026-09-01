@@ -150,9 +150,11 @@ describe("HOME v3 visual contract", () => {
     );
 
     expect(homeCss).toContain(
-      "@media (max-width:720px){.home-v3__device{width:125vw;left:45%;transform:translate(-50%,-50%) rotateY(-3deg) rotateX(1deg)",
+      "@media (max-width:720px){.home-v3__device{width:max(125vw,105vh);left:45%;transform:translate(-50%,-50%) rotateY(-3deg) rotateX(1deg)",
     );
-    expectRule(".screen-experience__wheel", "width:34%", "min-width:120px");
+    expectRule(".screen-experience__wheel", "inset:0", "width:auto");
+    expectRule(".screen-experience__wheel", "width:100vw", "min-width:0");
+    expectRule(".screen-experience__wheel::after", "width:34%", "min-width:120px");
     expect(homeCss).toContain(".fx--smoke-layer");
     expect(homeCss).toContain(".fx--smoke-a");
     expect(homeCss).toContain(".fx--smoke-b");

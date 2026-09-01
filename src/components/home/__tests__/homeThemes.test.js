@@ -1,4 +1,6 @@
 import { describe, expect, it } from 'vitest'
+import { readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
 
 import { HOME_THEMES } from '../homeThemes'
 
@@ -40,5 +42,16 @@ describe('HOME_THEMES', () => {
       { matte: [16, 45, 42], focus: '50% 54%', effect: 'fish' },
       { matte: [17, 56, 88], focus: '54% 48%', effect: 'photo' },
     ])
+  })
+
+  it('资产脚本只消费已验收 master，不重新生成或覆盖它们', () => {
+    const script = readFileSync(
+      resolve(process.cwd(), 'scripts/process-home-assets.mjs'),
+      'utf8',
+    )
+
+    expect(script).toContain("resolve(derivedDir, 'f1-master.png')")
+    expect(script).toContain("resolve(derivedDir, 'colnago-master.png')")
+    expect(script).not.toMatch(/toFile\(resolve\(derivedDir, `\$\{name\}-master\.png`\)\)/)
   })
 })

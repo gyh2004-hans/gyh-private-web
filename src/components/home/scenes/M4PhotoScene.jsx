@@ -23,6 +23,7 @@ export default function M4PhotoScene({ theme, active, progress }) {
       xPercent: 18,
       duration: 1.2,
       repeat: -1,
+      yoyo: true,
       ease: 'none',
     })
     gsap.to('.photo-scene__paint-highlight', {

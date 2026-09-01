@@ -341,7 +341,7 @@ body {
   position: absolute;
   left: -8%;
   right: -2%;
-  bottom: 1%;
+  bottom: -4%;
   height: 21%;
   border-radius: 5px 5px 22px 22px;
   background: linear-gradient(180deg, #292b30, #0c0d10 72%);
@@ -386,6 +386,9 @@ body {
 .screen-experience__words {
   z-index: 20;
   pointer-events: none;
+  mix-blend-mode: normal;
+  -webkit-mask-image: radial-gradient(ellipse 42% 54% at 50% 52%, rgba(0, 0, 0, 0.58) 0 28%, rgba(0, 0, 0, 0.78) 52%, #000 82%);
+  mask-image: radial-gradient(ellipse 42% 54% at 50% 52%, rgba(0, 0, 0, 0.58) 0 28%, rgba(0, 0, 0, 0.78) 52%, #000 82%);
 }
 
 .screen-experience__scene-slot,
@@ -424,11 +427,19 @@ body {
   --ow-text-color: rgba(255, 255, 255, 0.24);
   --ow-active-color: #fff;
   position: absolute;
+  inset: 0;
+  width: auto;
+  z-index: 35;
+}
+
+.screen-experience__wheel::after {
+  content: "";
+  position: absolute;
   right: 2.5%;
   top: 8%;
   bottom: 8%;
   width: min(28%, 260px);
-  z-index: 35;
+  pointer-events: none;
   border-right: 1px solid rgba(255, 255, 255, 0.22);
   background: linear-gradient(90deg, transparent, rgba(7, 9, 10, 0.1));
   mask-image: linear-gradient(transparent, #000 18%, #000 82%, transparent);
@@ -448,7 +459,7 @@ body {
 .screen-experience__cta {
   position: absolute;
   left: 50%;
-  bottom: 10%;
+  bottom: 6%;
   z-index: 40;
   transform: translateX(-50%);
 }
@@ -466,14 +477,9 @@ body {
   position: absolute;
   inset: 0;
   overflow: hidden;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.45s ease;
-  background: #111;
-}
-
-.photo-scene[data-active="true"] {
   opacity: 1;
+  pointer-events: none;
+  background: #111;
 }
 
 .photo-scene__image {
@@ -692,11 +698,31 @@ body {
   100% { transform: translate3d(0, 1%, 0); }
 }
 
-@media (max-width: 720px) {
+@media (min-width: 721px) and (max-width: 900px) and (orientation: portrait) {
   .home-v3__device {
-    width: 125vw;
+    width: max(125vw, 105vh);
     left: 45%;
     transform: translate(-50%, -50%) rotateY(-3deg) rotateX(1deg);
+  }
+
+  .home-v3__desk {
+    height: 50%;
+  }
+
+  .home-v3__base {
+    height: 16%;
+  }
+}
+
+@media (max-width: 720px) {
+  .home-v3__device {
+    width: max(125vw, 105vh);
+    left: 45%;
+    transform: translate(-50%, -50%) rotateY(-3deg) rotateX(1deg);
+  }
+
+  .home-v3__desk {
+    height: 50%;
   }
 
   .home-v3__base {
@@ -704,6 +730,14 @@ body {
   }
 
   .screen-experience__wheel {
+    left: 50%;
+    right: auto;
+    width: 100vw;
+    min-width: 0;
+    transform: translateX(-50%);
+  }
+
+  .screen-experience__wheel::after {
     right: 1%;
     width: 34%;
     min-width: 120px;
@@ -715,7 +749,7 @@ body {
   }
 
   .screen-experience__cta {
-    bottom: 10%;
+    bottom: 5%;
   }
 
   .fx--flash,

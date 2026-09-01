@@ -20,6 +20,7 @@ const OptionWheel = ({
   defaultSelected = 3,
   onChange,
   onPositionChange,
+  onActivate,
   textColor = '#a6a6a6',
   activeColor = '#ffffff',
   side = 'left',
@@ -47,6 +48,7 @@ const OptionWheel = ({
   const cfgRef = useRef({});
   const onChangeRef = useRef(onChange);
   const onPositionChangeRef = useRef(onPositionChange);
+  const onActivateRef = useRef(onActivate);
   const selectedRef = useRef(defaultSelected);
   const wheelTimerRef = useRef(null);
   const dragRef = useRef(null);
@@ -60,6 +62,7 @@ const OptionWheel = ({
 
   onChangeRef.current = onChange;
   onPositionChangeRef.current = onPositionChange;
+  onActivateRef.current = onActivate;
   cfgRef.current = {
     count: items.length,
     items,
@@ -158,7 +161,7 @@ const OptionWheel = ({
       if (snap) v = Math.round(v);
       targetRef.current = v;
       const idx = ((Math.round(v) % cfg.count) + cfg.count) % cfg.count;
-      if (idx !== selectedRef.current) {
+      if (snap && idx !== selectedRef.current) {
         selectedRef.current = idx;
         setSelectedIndex(idx);
         onChangeRef.current?.(idx, cfg.items[idx]);
@@ -235,6 +238,12 @@ const OptionWheel = ({
       let delta = null;
       if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') delta = -1;
       else if (e.key === 'ArrowDown' || e.key === 'ArrowRight') delta = 1;
+      else if (e.key === 'Enter') {
+        e.preventDefault();
+        const index = selectedRef.current;
+        onActivateRef.current?.(index, cfgRef.current.items[index]);
+        return;
+      }
       if (delta == null) return;
       e.preventDefault();
       applyTarget(Math.round(targetRef.current) + delta, true);

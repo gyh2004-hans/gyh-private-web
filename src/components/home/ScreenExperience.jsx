@@ -61,6 +61,7 @@ export default function ScreenExperience({
           inset={20}
           onChange={onActiveChange}
           onPositionChange={onPositionChange}
+          onActivate={onEnter}
         />
       </div>
       <div className="screen-experience__cta">

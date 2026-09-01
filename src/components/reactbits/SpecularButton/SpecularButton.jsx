@@ -93,6 +93,7 @@ const SpecularButton = ({
     const btn = btnRef.current;
     const fx = fxRef.current;
     if (!btn || !fx) return;
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
     const dpr = window.devicePixelRatio || 1;
     const renderer = new Renderer({ alpha: true, premultipliedAlpha: true, antialias: true, dpr });
     const gl = renderer.gl;

@@ -14,6 +14,10 @@
   outline: none;
 }
 
+.option-wheel:focus-visible {
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--ow-active-color) 72%, transparent);
+}
+
 .option-wheel--dragging {
   cursor: grabbing;
 }

@@ -11,12 +11,14 @@ export default function ColnagoPhotoScene({ theme, active, progress }) {
       xPercent: -16,
       duration: 1.4,
       repeat: -1,
+      yoyo: true,
       ease: 'none',
     })
     gsap.to('.photo-scene__grass-mid', {
       xPercent: -6,
       duration: 2.8,
       repeat: -1,
+      yoyo: true,
       ease: 'none',
     })
     gsap.to('.photo-scene__image', {
