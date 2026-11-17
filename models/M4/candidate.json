@@ -1,0 +1,25 @@
+{
+  "car": "宝马 M4",
+  "folder": "M4",
+  "modelTitle": "2021 BMW M4 (G82)",
+  "uid": "a424d97f850b4b8e87a112cd0149a8c1",
+  "url": "https://sketchfab.com/3d-models/none-a424d97f850b4b8e87a112cd0149a8c1",
+  "author": "OUTPISTON",
+  "authorProfile": "https://sketchfab.com/outpiston",
+  "license": "CC Attribution-NonCommercial-ShareAlike",
+  "triangles": 50900,
+  "downloadEnabled": true,
+  "status": "downloaded_validated_container",
+  "modelFile": "source/2021 BMW M4.glb",
+  "note": "G82双门公路版，约5.1万三角面，优先于百万面或赛车/改装版。",
+  "bytes": 4134236,
+  "sha256": "1fbb4b4df2ba30527c9c37bcbf8fadb19a5182c6437ed25b8d2ebe30ddd17f47",
+  "validation": {
+    "version": 2,
+    "meshes": 57,
+    "images": 9,
+    "externalImages": 0,
+    "animations": 0,
+    "requiredExtensions": []
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "car": "极氪8X",
+  "folder": "ZEEKR-8X",
+  "modelTitle": "zeekr 8x max, ultra, ultra+ 8x",
+  "uid": "a04c5efe08b64ea4b76a8cb233f5d7dd",
+  "url": "https://sketchfab.com/3d-models/none-a04c5efe08b64ea4b76a8cb233f5d7dd",
+  "author": "ItsDiyor",
+  "authorProfile": "https://sketchfab.com/ItsDiyor",
+  "license": "CC Attribution",
+  "triangles": 508841,
+  "downloadEnabled": true,
+  "status": "downloaded_validated_container",
+  "modelFile": "zeekr_8x_max_ultra_ultra_8x.glb",
+  "note": "用户已明确同意用普通版8X替代曜影版。",
+  "bytes": 29960912,
+  "sha256": "00c0cafc7a40b4e59e6d38c4bcb0a26340e5991d0cc0e8f9d267f79ef312fd34",
+  "validation": {
+    "version": 2,
+    "meshes": 183,
+    "images": 9,
+    "externalImages": 0,
+    "animations": 0,
+    "requiredExtensions": []
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "car": "宝马 M3 Touring",
+  "folder": "M3-Touring",
+  "modelTitle": "2023 BMW M3 Touring",
+  "uid": "f540fdbc0d93435d96ef354f01720dc0",
+  "url": "https://sketchfab.com/3d-models/none-f540fdbc0d93435d96ef354f01720dc0",
+  "author": "Ddiaz Design",
+  "authorProfile": "https://sketchfab.com/ddiaz-design",
+  "license": "CC Attribution-NonCommercial-ShareAlike",
+  "triangles": 256008,
+  "downloadEnabled": true,
+  "status": "downloaded_validated_container",
+  "modelFile": "2023_bmw_m3_touring.glb",
+  "note": "2023旅行版，不使用三厢M3或赛车涂装替代。",
+  "bytes": 18976848,
+  "sha256": "618ba23e6bacdac22b5d8e579a0ff08d6e76e55a7e672214cb9b21297e1a4b2e",
+  "validation": {
+    "version": 2,
+    "meshes": 1287,
+    "images": 32,
+    "externalImages": 0,
+    "animations": 0,
+    "requiredExtensions": []
+  }
+}

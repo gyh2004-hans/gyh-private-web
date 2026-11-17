@@ -1,0 +1,25 @@
+{
+  "car": "保时捷 911",
+  "folder": "911",
+  "modelTitle": "Porsche 911 C4S 2020 Aerokit",
+  "uid": "ee69c474a1cc4085944cde4cb7ae87db",
+  "url": "https://sketchfab.com/3d-models/none-ee69c474a1cc4085944cde4cb7ae87db",
+  "author": "JK3Dstudios",
+  "authorProfile": "https://sketchfab.com/JK3Dstudio",
+  "license": "CC Attribution",
+  "triangles": 323220,
+  "downloadEnabled": true,
+  "status": "downloaded_validated_container",
+  "modelFile": "source/Porsche 911 C4S 2020 Aerokit_Edited4.glb",
+  "note": "2020 C4S Aerokit；911细分版本尚未由用户指定，此项为现代公路版候选。",
+  "bytes": 35350668,
+  "sha256": "6d538734de593b409be862412be0727b70c5e37c98876135894ecbe1fa0c389c",
+  "validation": {
+    "version": 2,
+    "meshes": 15,
+    "images": 1,
+    "externalImages": 0,
+    "animations": 0,
+    "requiredExtensions": []
+  }
+}

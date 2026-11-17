@@ -1,0 +1,25 @@
+{
+  "car": "宾利 欧陆GT",
+  "folder": "Continental-GT",
+  "modelTitle": "2021 Bentley Continental GT Speed",
+  "uid": "6fe37b55f57a49f999dd95d4b915e117",
+  "url": "https://sketchfab.com/3d-models/none-6fe37b55f57a49f999dd95d4b915e117",
+  "author": "OUTPISTON",
+  "authorProfile": "https://sketchfab.com/outpiston",
+  "license": "CC Attribution-NonCommercial-ShareAlike",
+  "triangles": 58513,
+  "downloadEnabled": true,
+  "status": "downloaded_validated_container",
+  "modelFile": "source/2021 Bentley Continental GT Speed.glb",
+  "note": "2021 GT Speed，约5.9万三角面，双门公路版候选。",
+  "bytes": 3282852,
+  "sha256": "225ce69a4b1997952c7cf01c0b07ab8fec9bba6ba220b0dba2c0da829020a96e",
+  "validation": {
+    "version": 2,
+    "meshes": 58,
+    "images": 10,
+    "externalImages": 0,
+    "animations": 0,
+    "requiredExtensions": []
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "car": "奥迪 RS6",
+  "folder": "RS6",
+  "modelTitle": "2020 Audi RS6 Avant",
+  "uid": "980dbda2cbbb4bae8decaed2fa80aa0c",
+  "url": "https://sketchfab.com/3d-models/none-980dbda2cbbb4bae8decaed2fa80aa0c",
+  "author": "Ddiaz Design",
+  "authorProfile": "https://sketchfab.com/ddiaz-design",
+  "license": "CC Attribution-NonCommercial-ShareAlike",
+  "triangles": 233677,
+  "downloadEnabled": true,
+  "status": "downloaded_validated_container",
+  "modelFile": "2020_audi_rs6_avant.glb",
+  "note": "2020 RS6 Avant，C8旅行车型。",
+  "bytes": 13290276,
+  "sha256": "91aab9202b0d592dab8c1f7d9c553135b2171476345be8de197f646601eeff48",
+  "validation": {
+    "version": 2,
+    "meshes": 746,
+    "images": 36,
+    "externalImages": 0,
+    "animations": 0,
+    "requiredExtensions": []
+  }
+}

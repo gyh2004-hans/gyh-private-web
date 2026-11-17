@@ -1,0 +1,25 @@
+{
+  "car": "宝马 M240i",
+  "folder": "M240",
+  "modelTitle": "2022 BMW M240i Coupe",
+  "uid": "822a4e2d8a0e4568beda00539f4ad341",
+  "url": "https://sketchfab.com/3d-models/none-822a4e2d8a0e4568beda00539f4ad341",
+  "author": "Nazh Design ✔",
+  "authorProfile": "https://sketchfab.com/NazhDesign",
+  "license": "CC Attribution",
+  "triangles": 384756,
+  "downloadEnabled": true,
+  "status": "downloaded_validated_container",
+  "modelFile": "source/2022 BMW M240i Coupe.glb",
+  "note": "匹配M240i G42，约38万三角面；比另一款133万面的候选轻。",
+  "bytes": 7914456,
+  "sha256": "81c33bb61c44db5ad0404d2865e74c75a27aa7e6d6e7a0ad79a969f0cf8b92fb",
+  "validation": {
+    "version": 2,
+    "meshes": 1,
+    "images": 0,
+    "externalImages": 0,
+    "animations": 0,
+    "requiredExtensions": []
+  }
+}
